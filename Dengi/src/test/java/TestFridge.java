@@ -24,6 +24,7 @@ import static org.junit.Assert.*;
          System.out.println("/\n");
          m1.div(3);
          m1.show();
+         System.out.println(m1.toString());
      }
 
      @Test
