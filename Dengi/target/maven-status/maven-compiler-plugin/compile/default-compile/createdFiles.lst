@@ -1,5 +1,7 @@
+TimeUser.class
 Salary.class
+Time.class
+Loan.class
 Person.class
 Subscription.class
 Money.class
-Loan.class

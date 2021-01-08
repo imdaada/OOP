@@ -46,13 +46,13 @@ import static org.junit.Assert.*;
          assertEquals(person.getMoney().getCop(), 0);
          person.subscribe(new Salary(person, new Money(100, 0)));
          for (int i = 0; i<35; i++) {
-             person.addTime();
+             Time.getInstance().addTime();
          }
          assertEquals(person.getMoney().getRub(), 100);
          person.subscribe(new Salary(person, new Money(100, 0)));
          person.subscribe(new Loan(person, new Money(50, 0)));
          for (int i = 0; i<20; i++) {
-             person.addTime();
+             Time.getInstance().addTime();
          }
          assertEquals(person.getMoney().getRub(), 200);
          person.showBalance();

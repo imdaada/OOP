@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Person {
+public class Person implements TimeUser {
     private String name;
     private String surname;
-    private int time = 0;
+    //private int time = 0;
     private Money balance;
     private List<Subscription> subscriptions = new ArrayList<Subscription>();
 
@@ -12,6 +12,7 @@ public class Person {
         this.name = name;
         this.surname = surname;
         this.balance = balance;
+        Time.getInstance().subscribe(this);
     }
 
     public void addMoney(Money money) {
@@ -34,10 +35,17 @@ public class Person {
         return balance;
     }
 
-    public void addTime(){
+   /* public void addTime(){
             time += 1;
             subscriptions.forEach((Subscription a) -> {
                 a.event(time);
             });
+    } */
+
+    @Override
+    public void time() {
+        subscriptions.forEach((Subscription a) -> {
+            a.event(Time.getInstance().getTime());
+        });
     }
 }
